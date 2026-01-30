@@ -11,8 +11,9 @@ model = QBertClassifier()
 model.load_state_dict(torch.load("qbert_model.pth", map_location="cpu"))
 model.eval()
 
-# ---- SINGLE INPUT TEXT ----
-text = "The █████ discussed █████ at ████"
+# ---- USER INPUT ----
+print("\nEnter encrypted or redacted text:")
+text = input(">> ")
 
 # Tokenize & embed
 tokens = quantum_embed(text)
@@ -25,6 +26,7 @@ with torch.no_grad():
 # Output explanation
 label_name = "Normal" if prediction == 0 else "Threat"
 
+print("\n--- Prediction Result ---")
 print("Input Text:", text)
 print("Predicted Class:", prediction)
 print("Meaning:", label_name)
