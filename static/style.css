@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #eaf2ff, #f8fbff);
+    color: #0f172a;
+}
+
+.app-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.app-header h1 {
+    font-size: 42px;
+    letter-spacing: 2px;
+    color: #2563eb;
+}
+
+.app-header p {
+    color: #475569;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.subtitle {
+    color: #475569;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 140px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #cbd5f5;
+    background: #f8fafc;
+    color: #0f172a;
+    resize: none;
+}
+
+textarea::placeholder {
+    color: #64748b;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#charCount {
+    font-size: 14px;
+    color: #475569;
+}
+
+button {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: #ffffff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.loader {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #cbd5f5;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.result-card {
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.result-card.threat {
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #b91c1c;
+}
+
+.result-card.safe {
+    background: #dcfce7;
+    border: 1px solid #22c55e;
+    color: #166534;
+}
+
+.error {
+    margin-top: 20px;
+    color: #b91c1c;
+}
+
+.footer {
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 40px;
+}

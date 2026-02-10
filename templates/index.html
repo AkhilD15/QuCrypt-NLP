@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q-BERT | Encrypted Threat Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="app-container">
+
+    <header class="app-header">
+        <h1>Q-BERT</h1>
+        <p>Encrypted Text Threat Detection (Without Decryption)</p>
+    </header>
+
+    <div class="card">
+        <h2>Analyze Encrypted / Redacted Text</h2>
+        <p class="subtitle">
+            This system analyzes encrypted text patterns and predicts potential threats.
+        </p>
+
+        <textarea 
+            id="textInput" 
+            placeholder="Paste encrypted or redacted content here..."></textarea>
+
+        <div class="form-footer">
+            <span id="charCount">0 characters</span>
+            <button id="analyzeBtn" onclick="analyzeText()">Analyze Threat</button>
+        </div>
+
+        <div id="loader" class="loader hidden">
+            <div class="spinner"></div>
+            <p>Analyzing encrypted patterns...</p>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <div class="card">
+        <h2>Real-World Applications</h2>
+        <ul>
+            <li>Defense and intelligence encrypted communication analysis</li>
+            <li>Threat detection in redacted legal documents</li>
+            <li>Corporate insider threat monitoring</li>
+            <li>Privacy-preserving message analysis</li>
+        </ul>
+    </div>
+
+    <footer class="footer">
+        © 2026 Q-BERT Research Prototype
+    </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
