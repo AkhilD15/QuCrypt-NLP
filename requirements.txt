@@ -1,1 +1,7 @@
-torch transformers scikit-learn pandas matplotlib qiskit
+torch
+transformers
+scikit-learn
+pandas
+matplotlib
+qiskit
+flask
