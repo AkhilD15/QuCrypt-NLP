@@ -1,8 +1,5 @@
-torch
-transformers
-scikit-learn
+streamlit
+qiskit          # (Or pennylane, depending on what's in your /quantum folder)
+numpy
 pandas
-matplotlib
-qiskit
-flask
-gunicorn
+nltk            # (For your NLP utils)
