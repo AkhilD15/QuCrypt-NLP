@@ -3,3 +3,6 @@ qiskit          # (Or pennylane, depending on what's in your /quantum folder)
 numpy
 pandas
 nltk            # (For your NLP utils)
+streamlit
+transformers
+torch
