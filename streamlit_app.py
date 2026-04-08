@@ -1,39 +1,34 @@
 import streamlit as st
-import numpy as np
-from quantum.your_quantum_module import your_quantum_function 
-from utils.nlp_processing import preprocess_text
+import sys
+import os
 
-# --- Page Config ---
+# 1. Add the current directory to the system path so Python can see your folders
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# 2. Corrected Imports based on your filenames
+try:
+    # Assuming the function inside is named 'embed_text' or similar
+    # If the function name is different, change 'embed_text' to the correct name
+    from quantum.quantum_embedding import embed_text 
+    from utils.text_preprocessing import preprocess_text
+    st.sidebar.success("✅ Quantum & NLP modules loaded")
+except ImportError as e:
+    st.sidebar.error(f"⚠️ Connection Error: {e}")
+    st.sidebar.info("Double-check the function names inside your .py files.")
+
+# --- Streamlit UI ---
 st.set_page_config(page_title="QuCrypt-NLP", page_icon="⚛️")
+st.title("⚛️ QuCrypt: Quantum NLP")
 
-st.title("⚛️ QuCrypt: Quantum-NLP Dashboard")
-st.markdown("Secure and process text using hybrid quantum-classical logic.")
+user_input = st.text_area("Enter text for Quantum Encryption:", "Quantum computing is the future.")
 
-# --- Sidebar for Settings ---
-with st.sidebar:
-    st.header("Settings")
-    backend = st.selectbox("Quantum Backend", ["Aer Simulator", "IBM Brisbane (Cloud)"])
-    shots = st.slider("Shots", 1024, 4096, 2048)
-
-# --- Main UI ---
-user_input = st.text_area("Enter text to process:", "Hello Quantum World!")
-
-if st.button("Process with Quantum NLP"):
-    with st.spinner("Executing quantum circuit..."):
-        # 1. Preprocess
-        cleaned_text = preprocess_text(user_input)
+if st.button("Process"):
+    with st.spinner("Executing Quantum Circuit..."):
+        # Pre-process text using your utils
+        clean_text = preprocess_text(user_input)
         
-        # 2. Quantum Execution
-        result = your_quantum_function(cleaned_text, shots=shots)
+        # Run quantum embedding
+        quantum_result = embed_text(clean_text)
         
-        # 3. Display Results
-        st.success("Processing Complete!")
-        
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Quantum State Fidelity", "98.4%")
-        with col2:
-            st.metric("Encryption Strength", "High")
-            
-        st.write("### Output Data")
-        st.json(result)
+        st.write("### Resulting Quantum States")
+        st.json(quantum_result)
